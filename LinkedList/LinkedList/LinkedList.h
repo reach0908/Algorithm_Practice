@@ -7,9 +7,9 @@ class List {
 public:
 	List();
 	void insert(const ListElementType& elem);
+	void insertBetween(const ListElementType& elem);
 	bool first(ListElementType& elem);
 	bool next(ListElementType& elem);
-private:
 	struct Node;
 	typedef Node* Link;
 	struct Node {
@@ -39,6 +39,13 @@ void List::insert(const ListElementType& elem) {
 	}
 	tail = addedNode;
 	addedNode->next = 0;
+}
+void List::insertBetween(const ListElementType& elem) {
+	Link addedNode = new Node;
+	assert(addedNode);
+	addedNode->data = elem;
+	addedNode->next = current->next;
+	current->next = addedNode;
 }
 bool List::first(ListElementType& elem) {
 	
