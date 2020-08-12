@@ -8,6 +8,7 @@ public:
 	List();
 	void insert(const ListElementType& elem);
 	void insertBetween(const ListElementType& elem);
+	void delNode(const ListElementType& elem);
 	bool first(ListElementType& elem);
 	bool next(ListElementType& elem);
 	struct Node;
@@ -19,6 +20,7 @@ public:
 	Link head;
 	Link tail;
 	Link current;
+	
 };
 
 List::List() {
@@ -46,6 +48,31 @@ void List::insertBetween(const ListElementType& elem) {
 	addedNode->data = elem;
 	addedNode->next = current->next;
 	current->next = addedNode;
+}
+void List::delNode(const ListElementType & target) {
+	//헤드삭제, 중간삭제, 테일삭제의 경우를 생각해야함
+	assert(head);
+	Link pred, delNode;
+	// pred starts out pointing at the dummy head
+	pred = head;
+	while (pred->next)
+	{
+		if (pred->next->data == target) {
+			break;
+		}
+		pred = pred->next;
+	}
+	// at this point, check to see if we've found target --
+	// if so, remove it
+	// Have to check carefully to make sure we don't
+	// dereference a null pointer!
+	if (pred && (pred->next) && (pred->next->data == target)) {
+		// remove the next node in the list
+		delNode = pred->next;
+		pred->next = delNode->next;
+		delete delNode; // return node to memory
+	}
+
 }
 bool List::first(ListElementType& elem) {
 	

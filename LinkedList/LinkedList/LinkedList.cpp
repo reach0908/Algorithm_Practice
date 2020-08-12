@@ -62,6 +62,15 @@ int main()
             cout << elem << endl;
         }
     }
+    //노드 삭제하기
+    l.delNode(5);
+    cout << "노드 삭제하기" << endl;
+    l.first(elem);
+    cout << elem << endl;
+    while (l.next(elem))
+    {
+        cout << elem << endl;
+    }
     
 
     return 0;
