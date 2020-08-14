@@ -55,12 +55,11 @@ void List::delNode(const ListElementType & target) {
 	Link pred, delNode;
 	// pred starts out pointing at the dummy head
 	pred = head;
-	while (pred->next)
+	while (pred = pred->next)
 	{
 		if (pred->next->data == target) {
 			break;
 		}
-		pred = pred->next;
 	}
 	// at this point, check to see if we've found target --
 	// if so, remove it
