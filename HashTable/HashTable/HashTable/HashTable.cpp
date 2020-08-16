@@ -7,8 +7,39 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
+
+    HashTable<int,char> h;
+    h.insert(0, 'a');
+    h.insert(1, 'b');
+    h.insert(2, 'c');
+    h.insert(3, 'd');
+    h.insert(4, 'e');
+    h.insert(5, 'f');
+    h.insert(6, 'g');
+
+    char data;
+    cout << h.lookup(0, data);
+    cout << data << endl;
+    cout << h.lookup(1, data);
+    cout << data << endl;
+    cout << h.lookup(2, data);
+    cout << data << endl;
+    cout << h.lookup(3, data);
+    cout << data << endl;
+    cout << h.lookup(4, data);
+    cout << data << endl;
+    cout << h.lookup(5, data);
+    cout << data << endl;
+    cout << h.lookup(6, data);
+    cout << data << endl;
+    cout << h.lookup(7, data);
+    cout << data << endl;
+
+
+
+}
+
     //해쉬 구조
     // 해쉬테이블 키에 데이터를 저장하는 데이터 구조
     // 키를 통해 바로 데이터를 받아올 수 있으므로 속도가 획기적으로 빨라짐
@@ -29,11 +60,7 @@ int main()
 
     //배열에 해당 공간에 해당하는 데이터 키 값이 연결되어 있다. 
     
-    List l;
-    for (int i = 0; i < 10; i++)
-    {
-        l.insert(i);
-    }
+    
     //해쉬 함수 만들기 - 디비전 방법 나누기를 통한 나머지값을 사용하는 기법
 
     //해쉬 테이블에 값 저장 예
@@ -56,5 +83,4 @@ int main()
     //충돌이 일어나면, 링크드 리스트 라는 자료구조를 사용해서, 링크드 리스트로 데이터를 추가로 뒤에 연결시켜서 저장하는 기법
     //Linear Probing 기법
     //
-}
 
