@@ -16,11 +16,11 @@ public:
 	BinaryTree* right();
 	void makeLeft(BinaryTree* T1);
 	void makeRight(BinaryTree* T1);
-private:
+protected:
 	bool nullTree;
 	btElementType treeData;
 	BinaryTree* leftTree;
-	BinaryTree rightTree;
+	BinaryTree* rightTree;
 };
 
 template<class btElementType>
