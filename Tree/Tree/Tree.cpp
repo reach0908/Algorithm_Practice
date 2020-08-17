@@ -27,7 +27,7 @@ int main()
 	b->insert(12);
 
 	intBSTPtr get11((BST<int>*)b->retrieve(11));
-	//intBSTPtr get13((BST<int>*)b->retrieve(13));
+	intBSTPtr get13((BST<int>*)b->retrieve(13));
 
 	if (get11->isEmpty()) {
 		cout << "Not Found" << endl;
@@ -37,13 +37,13 @@ int main()
 		cout << "Found" << endl;
 	}
 
-	//if (get13->isEmpty()) {
-	//	cout << "Not Found" << endl;
-	//}
-	//else
-	//{
-	//	cout << "Found" << endl;
-	//}
+	if (get13->isEmpty()) {
+		cout << "Not Found" << endl;
+	}
+	else
+	{
+		cout << "Found" << endl;
+	}
 
 	return 0;
 }

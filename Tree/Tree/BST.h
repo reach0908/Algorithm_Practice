@@ -51,8 +51,8 @@ BST<btElementType>::retrieve(const btElementType& d)
 	if (this->nullTree || d == this->treeData)
 		return this;
 	else if (d < this->treeData)
-		return ((BST <btElementType>*) this->leftTree)->retrieve(d);
+		return ((BST <btElementType>*)this->leftTree)->retrieve(d);
 	else
-		return ((BST <btElementType>*) this->rightTree)->retrieve(d);
+		return ((BST <btElementType>*)this->rightTree)->retrieve(d);
 }
 

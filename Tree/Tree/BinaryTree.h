@@ -11,7 +11,7 @@ public:
 	BinaryTree();
 	bool isEmpty() const;
 	btElementType getData() const;
-	void insert(const btElementType& d);
+	virtual void insert(const btElementType& d);
 	BinaryTree* left();
 	BinaryTree* right();
 	void makeLeft(BinaryTree* T1);
