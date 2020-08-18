@@ -13,6 +13,8 @@ int main()
 	typedef intBST* intBSTPtr;
 
 	intBSTPtr b(new intBST);
+	cout << "BST 삽입 및 서치" << endl;
+
 
 	b->insert(17);
 	b->insert(10);
@@ -25,26 +27,25 @@ int main()
 	b->insert(31);
 	b->insert(37);
 	b->insert(12);
-
-	intBSTPtr get11((BST<int>*)b->retrieve(11));
-	intBSTPtr get13((BST<int>*)b->retrieve(13));
-
-	if (get11->isEmpty()) {
-		cout << "Not Found" << endl;
-	}
+	cout << b->getData() << endl;
+	cout << b->left()->getData() << " " << b->right()->getData() << endl;
+	cout << b->left()->left()->getData() <<" "<< b->left()->right()->getData() << " " << b->right()->left()->getData() << " " << b->right()->right()->getData() << endl;
+	cout << b->left()->right()->left()->getData() << " " << b->right()->right()->right()->getData() << endl;
+	cout << b->left()->right()->left()->right()->getData() << " " << b->right()->right()->right()->right()->getData() << endl;
+	  
+	b->deleteNode(20);
+	cout << b->getData() << endl;
+	cout << b->left()->getData() << " " << b->right()->getData() << endl;
+	cout << b->left()->left()->getData() << " " << b->left()->right()->getData() << " " << b->right()->right()->getData() << endl;
+	cout << b->left()->right()->left()->getData() << " " << b->right()->right()->right()->getData() << endl;
+	cout << b->left()->right()->left()->right()->getData() << " " << b->right()->right()->right()->right()->getData() << endl;
+	intBSTPtr get20((BST<int>*)b->retrieve(20));
+	if (get20->isEmpty())
+		cout << "11 not found.\n";
 	else
-	{
-		cout << "Found" << endl;
-	}
+		cout << "11 found.\n";
 
-	if (get13->isEmpty()) {
-		cout << "Not Found" << endl;
-	}
-	else
-	{
-		cout << "Found" << endl;
-	}
-
+	
 	return 0;
 }
 
