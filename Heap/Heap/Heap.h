@@ -1,26 +1,8 @@
 #pragma once
-#include "BinaryTree.h"
+#define MAX_SIZE 100
 
 
-template<class heapElementType>
-class Heap : public BinaryTree<heapElementType>
-{
-public:
-	Heap();
-	virtual void insert(const heapElementType& data);
-priaate:
+typedef int Compare(int a, int b);
+int arr[100] = { 0, };
 
-};
-template<class heapElementType>
-Heap<heapElementType>::Heap()
-{
-
-}
-
-template<class heapElementType>
-void
-Heap<heapElementType>::insert(const heapElementType& data)
-{
-
-}
 
