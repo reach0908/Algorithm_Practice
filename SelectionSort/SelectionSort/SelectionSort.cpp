@@ -5,12 +5,27 @@
 
 using namespace std;
 
-#define ARR_SIZE 10
+#define ARR_SIZE 15
 
 void swap(int* a, int* b) {
     int tmp = *a;
     *a = *b;
     *b = tmp;
+}
+
+void selectionSort(int arr[]) {
+    for (int i = 0; i < ARR_SIZE - 1; i++)
+    {
+        int min = i;
+        for (int j = i + 1; j < ARR_SIZE; j++)
+        {
+            if (arr[min] > arr[j])
+            {
+                min = j;
+            }
+        }
+        swap(arr[min], arr[i]);
+    }
 }
 
 int main()
@@ -30,18 +45,7 @@ int main()
 
     cout << endl;
 
-    for (int i = 0; i < ARR_SIZE-1; i++)
-    {
-        int min = i;
-        for (int j = i+1; j < ARR_SIZE; j++)
-        {
-            if (arr[min]>arr[j])
-            {
-                min = j;
-            }
-        }
-        swap(arr[min], arr[i]);
-    }
+    selectionSort(arr);
 
     for (int i = 0; i < ARR_SIZE; i++)
     {
@@ -59,4 +63,4 @@ int main()
 //간단한 경우부터 생각해서 종이에 작성후
 // 알고리즘 구현을 공부한다. 
 
-// 
+//시간복잡도는 이중포문이기 때문에 On^2이다.
