@@ -36,10 +36,10 @@ int main()
 }
 
 int func2(int num) {
-	if (num < 1) - 입력한 값이 일정값보다 작으면
+	if (num <= 1) - 입력한 값이 일정값보다 작으면
 	{
 		return num; - 재귀호출 종료
 	}
-	func2(num - 1); - 입력보다 작은 값
-	return num; - 결과값
+	int return_Value = num*func2(num - 1); - 입력보다 작은 값 
+	return return_Value; - 결과값
 }*/
