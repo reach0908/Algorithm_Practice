@@ -35,6 +35,7 @@ void quickSort(int *data,int left,int right) {
             cout << "바뀐엔드지점 : " << end << endl;
         }
         if (start > end) { 
+            cout << "현재 피벗값과 엔드값 :" << pivot<<" "<<end << endl;
             swap(data[pivot], data[end]);
             swapNum++;
             for (int i = 0; i < ARR_SIZE; i++)
@@ -45,6 +46,7 @@ void quickSort(int *data,int left,int right) {
         }
         else
         {
+            cout << "현재 스타트 엔드 값 :" << start << " " << end << endl;
             swap(data[start], data[end]);
             swapNum++;
             for (int i = 0; i < ARR_SIZE; i++)
@@ -59,6 +61,7 @@ void quickSort(int *data,int left,int right) {
     {
         cout << data[i] << " ";
     }
+    cout << "피벗 :" << pivot << " 스타트 :" << start << " 엔드 :" << end << endl;
     cout << endl;
     cout << endl;
     cout << endl;
