@@ -14,7 +14,7 @@ void swap(int *a,int *b) {
     *a = *b;
     *b = temp;
 }
-
+int swapNum = 0;
 void quickSort(int *data,int left,int right) {
     if (left >= right) {
         return;
@@ -27,19 +27,41 @@ void quickSort(int *data,int left,int right) {
         while (start<=right&&data[start]<=data[pivot]) // 스타트가 끝보다 작으면서 피벗의 값이 크다면 넘어가도 되니 스타트를 옮긴다.
         {
             start++;
+            cout << "바뀐스타트지점 : " << start << endl;
         }
         while (left < end && data[end] >= data[pivot]) //피벗의 값이 엔드의 값보다 작으면 넘어가도 되니 엔드를 줄인다.
         {
             end--;
+            cout << "바뀐엔드지점 : " << end << endl;
         }
         if (start > end) { 
             swap(data[pivot], data[end]);
+            swapNum++;
+            for (int i = 0; i < ARR_SIZE; i++)
+            {
+                cout << data[i] << " ";
+            }
+            cout << "스왑된 횟수  :" << swapNum << endl;
         }
         else
         {
             swap(data[start], data[end]);
+            swapNum++;
+            for (int i = 0; i < ARR_SIZE; i++)
+            {
+                cout << data[i] << " ";
+            }
+            cout << "스왑된 횟수  :" << swapNum << endl;
         }
     }
+    cout << "반복문 종료 : 현재까지의 상황 " << endl;
+    for (int i = 0; i < ARR_SIZE; i++)
+    {
+        cout << data[i] << " ";
+    }
+    cout << endl;
+    cout << endl;
+    cout << endl;
     quickSort(data, left, end - 1);
     quickSort(data, end + 1, right);
 }
@@ -91,10 +113,18 @@ void quick_sort(int a[], int left, int right) {
 
     if (left < right) {
         int p = partition(a, left, right);
-
+        for (int i = 0; i < ARR_SIZE; i++)
+        {
+            cout << a[i] << " ";
+        }
+        cout << endl;
         quick_sort(a, left, p - 1);
+        for (int i = 0; i < ARR_SIZE; i++)
+        {
+            cout << a[i] << " ";
+        }cout << endl;
         quick_sort(a, p + 1, right);
-    }
+    } 
 }
 
 
@@ -103,19 +133,19 @@ int main()
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<int> dis(1, 100);
-    int arr[ARR_SIZE];
+    int arr[ARR_SIZE] = { 1,6,3,4,5,8,10,0,7,2 };
     int arr2[ARR_SIZE];
     int arr3[ARR_SIZE];
     for (int i = 0; i < ARR_SIZE; i++)
     {
-        arr[i] = dis(gen);
+        
         arr2[i] = dis(gen);
         arr3[i] = dis(gen);
         
     }
     cout << endl;
     quickSort(arr,0,9);
-    quickSort2(arr2, 0, 9);
+    /*quickSort2(arr2, 0, 9);
     quick_sort(arr3, 0, 9);
     for (int i = 0; i < ARR_SIZE; i++)
     {
@@ -131,7 +161,7 @@ int main()
     {
         cout << arr3[i] << " ";
     }
-    cout << endl;
+    cout << endl;*/
 
 
     return 0;
