@@ -1,6 +1,9 @@
 ﻿
 #include <iostream>
 #include <random>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -41,23 +44,95 @@ void quickSort(int *data,int left,int right) {
     quickSort(data, end + 1, right);
 }
 
+void quickSort2(int A[], int low, int high) {
+    if (low >= high) return; // base condition
+
+    // divide process
+    int i = low - 1, j = low;
+    int& pivot = A[high];
+    for (; j < high; ++j) {
+        if (A[j] < pivot)
+            swap(A[++i], A[j]);
+    }
+    swap(A[++i], pivot);
+
+    // conquer process
+    quickSort2(A, low, i - 1);
+    quickSort2(A, i + 1, high);
+}
+
+//파티션을 이용한 퀵소트
+int partition(int a[], int left, int right) {
+
+    srand(time(NULL));
+    // left ~ right 사이의 값을 랜덤으로 생성
+    int pivot_index = rand() % (right + 1 - left) + left;
+    int pivot_value = a[pivot_index];
+
+    swap(&a[pivot_index], &a[right]);
+
+    // store_index를 기준으로
+    // 왼쪽에 pivot_value보다 작은 값들 위치시킴
+    int store_index = left;
+    for (int i = left; i < right; i++) {
+        if (a[i] < pivot_value) {
+            swap(&a[i], &a[store_index]);
+            store_index += 1;
+        }
+    }
+
+    swap(&a[store_index], &a[right]);
+
+    return store_index;
+
+}
+
+void quick_sort(int a[], int left, int right) {
+
+    if (left < right) {
+        int p = partition(a, left, right);
+
+        quick_sort(a, left, p - 1);
+        quick_sort(a, p + 1, right);
+    }
+}
+
+
 int main()
 {
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<int> dis(1, 100);
     int arr[ARR_SIZE];
+    int arr2[ARR_SIZE];
+    int arr3[ARR_SIZE];
     for (int i = 0; i < ARR_SIZE; i++)
     {
         arr[i] = dis(gen);
-        cout << arr[i] << " ";
+        arr2[i] = dis(gen);
+        arr3[i] = dis(gen);
+        
     }
     cout << endl;
     quickSort(arr,0,9);
+    quickSort2(arr2, 0, 9);
+    quick_sort(arr3, 0, 9);
     for (int i = 0; i < ARR_SIZE; i++)
     {
         cout << arr[i] << " ";
     }
+    cout << endl;
+    for (int i = 0; i < ARR_SIZE; i++)
+    {
+        cout << arr2[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < ARR_SIZE; i++)
+    {
+        cout << arr3[i] << " ";
+    }
+    cout << endl;
+
 
     return 0;
 }
