@@ -48,9 +48,9 @@ void mergeSort(int arr[],int start,int end) {
     int mid;
     if (start < end) {
         mid = (start + end) / 2;
-        mergeSort(arr,start, mid);
-        mergeSort(arr,mid + 1, end);
-        merge_(arr,start,mid,end);
+        mergeSort(arr,start, mid); //쪼개고 정렬
+        mergeSort(arr,mid + 1, end); //쪼개고 정렬
+        merge_(arr,start,mid,end); //쪼갠것들 합치기
     }
 }
 
