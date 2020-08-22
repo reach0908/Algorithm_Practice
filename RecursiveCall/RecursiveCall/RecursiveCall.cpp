@@ -36,6 +36,38 @@ int sum(int arr[],int arrSize) {
 	}
 }
 
+//회문 프로그래밍 
+//문자열 슬라이싱 - 스트링라이브러리 이용 - 라이브러리를 사용못할때는 어떻게? - 포문으로 앞뒤 검사
+int example(int num) {
+	cout << num << endl;
+	if (num <=1)
+	{
+		return num;
+	}
+	else if (num%2==1) {
+		return example((3 * num) + 1);
+	}
+	else
+	{
+		return example(num / 2);
+	}
+}
+
+int example2(int num) {
+	if (num == 1) {
+		return 1;
+	}
+	else if (num == 2) {
+		return 2;
+	}
+	else if (num == 3) {
+		return 4;
+	}
+	else {
+		return example2(num - 1) + example2(num - 2) + example2(num - 3);
+	} //acm-icpc 문제 1과 2와 3으로 n 을 만들어낼 수 있는 경우의 수 구하기 
+}
+
 int main()
 {
 
@@ -53,8 +85,10 @@ int main()
 		cout << arr[i] << " ";
 	}
 	cout << endl;
-	cout << sum(arr, ARR_SIZE);
+	cout << sum(arr, ARR_SIZE) << endl;
 
+	cout << example(3) << endl;
+	cout << example2(4) << endl;
     return 0;
 }
 
