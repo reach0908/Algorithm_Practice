@@ -97,9 +97,21 @@ void mergeSort(int arr[], int left, int right) {
 		merge(arr, left, right);
 	}
 }
-//
-void insertionSort() {
-
+//삽입정렬
+void insertionSort(int arr[],int size) {
+	for (int i = 0; i <size-1; i++)
+	{
+		for(int j=i+1;j>=0;j--) // 두번째인덱스부터 시작
+		{
+			if (arr[j] < arr[j - 1]) {  // 해당 인덱스 값 앞에 있는 데이터부터 비교해서 키값이 더 작으면 
+				swap(&arr[j], &arr[j - 1]);
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
 }
 //
 void selectionSort() {
