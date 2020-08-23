@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
 
+
+#define ARR_SIZE 100
+int tempArr[ARR_SIZE];
+
 void swap(int *a,int *b) {
 	int temp = *a;
 	*a = *b;
@@ -45,10 +49,53 @@ void bubbleSort(int *data,int size) {
 		}
 	}
 }
-//
-void mergeSort() {
-
-
+//병합정렬 
+void merge(int arr[],int left, int right) {
+	
+	int mid = (left + right) / 2;
+	int L = left;
+	int R = mid + 1;
+	int K = left;
+	while (L <= mid && R <= right) {
+		if (arr[L]<=arr[R])
+		{
+			tempArr[K] = arr[L];
+			L++;
+		}
+		else {
+			tempArr[K] = arr[R];
+			R++;
+		}
+		K++;
+	}
+	if (L>mid)
+	{
+		for (int i = R; i <= right; i++)
+		{
+			tempArr[K] = arr[i];
+			K++;
+		}
+	}
+	else
+	{
+		for (int i = L; i <= mid; i++)
+		{
+			tempArr[K] = arr[i];
+			K++;
+		}
+	}
+	for (int i = left; i <= right; i++)
+	{
+		arr[i] = tempArr[i]; // 자르고 정렬해서 임시배열에 넣은거 다시 원래배열에 복붙 
+	}
+}
+void mergeSort(int arr[], int left, int right) {
+	if (left < right) {
+		int mid = (left + right) / 2;
+		mergeSort(arr, left, mid);
+		mergeSort(arr, mid + 1, right); // 계속 나누고 나눠서 잘게쪼개진다음에 탈출 후, 머지
+		merge(arr, left, right);
+	}
 }
 //
 void insertionSort() {
