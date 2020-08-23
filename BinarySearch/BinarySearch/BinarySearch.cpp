@@ -6,7 +6,7 @@
 #include "Sort.h"
 
 using namespace std;
-#define ARR_SIZE 20
+#define ARR_SIZE 50
 
 bool BinarySearch(int arr[],int start,int end,int search) {
     if (end == 0 && search == arr[0]) {
