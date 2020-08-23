@@ -24,7 +24,8 @@ int main()
     //quickSort(arr, 0, ARR_SIZE - 1);
     //bubbleSort(arr, ARR_SIZE);
     //mergeSort(arr, 0, ARR_SIZE-1);
-    insertionSort(arr, ARR_SIZE);
+    //insertionSort(arr, ARR_SIZE);
+    selectionSort(arr, ARR_SIZE);
     for (int i = 0; i < ARR_SIZE; i++)
     {
         cout << arr[i] << " ";

@@ -103,7 +103,7 @@ void insertionSort(int arr[],int size) {
 	{
 		for(int j=i+1;j>=0;j--) // 두번째인덱스부터 시작
 		{
-			if (arr[j] < arr[j - 1]) {  // 해당 인덱스 값 앞에 있는 데이터부터 비교해서 키값이 더 작으면 
+			if (arr[j] < arr[j - 1]) {  // 해당 인덱스 값 앞에 있는 데이터부터 비교해서 키값이 더 작으면 스왑 그렇게 키값과 아랫값들을 비교한다. 
 				swap(&arr[j], &arr[j - 1]);
 			}
 			else
@@ -113,9 +113,20 @@ void insertionSort(int arr[],int size) {
 		}
 	}
 }
-//
-void selectionSort() {
+// 최소값을 찾은 뒤 맨 앞 데이터와 교체 
+void selectionSort(int arr[],int size) {
 
-
+	for (int i = 0; i < size-1; i++)
+	{	
+		int min = i;
+		for (int j = i + 1; j < size; j++) {
+			if (arr[min]>arr[j])
+			{
+				min = j; // 배열중에서 최소값을 찾아 선택 한 후  
+			}
+			 // 최소값과 인덱스의 값 스왑
+		}
+		swap(&arr[min], &arr[i]);
+	}
 }
 //
