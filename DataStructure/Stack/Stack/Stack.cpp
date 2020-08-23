@@ -16,7 +16,7 @@ int main()
 		s.push(i);
 	}
 	cout << s.isEmpty() << endl;
-	cout << s.isFull() << endl;
+	//cout << s.isFull() << endl;
 	for (int i = 0; i < STACK_SIZE; i++)
 	{
 		cout << s.pop() << " ";

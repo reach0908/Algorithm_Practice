@@ -3,12 +3,75 @@
 #include <assert.h>
 const int maxStackSize = 1000;
 
+template<class StackElementType>
+class Stack
+{
+public:
+	Stack();
+	void push(StackElementType item);
+	StackElementType pop();
+	StackElementType top();
+	bool isEmpty();
+private:
+	struct Node;
+	typedef Node* Link;
+	struct Node
+	{
+		StackElementType data;
+		Link next;
+	};
+	Link head;
+};
+
+template<class StackElementType>
+Stack<StackElementType>::Stack()
+{
+	head = 0;
+}
+
+template<class StackElementType>
+void
+Stack<StackElementType>::push(StackElementType item)
+{
+	Link addedNode = new Node;
+	assert(addedNode);
+	addedNode->data = item;
+	addedNode->next = head;
+	head = addedNode;
+}
+template<class StackElementType>
+StackElementType
+Stack<StackElementType>::pop()
+{
+	assert(head != 0); // 스택이 비어있는지 확인
+	Link delNode;
+	StackElementType tmp;
+	delNode = head;
+	tmp = delNode->data;
+	head = head->next;
+	delete delNode;
+	return tmp;
+}
+template<class StackElementType>
+StackElementType
+Stack<StackElementType>::top()
+{
+	assert(head !=0);
+	return head->data;
+}
+template<class StackElementType>
+bool
+Stack<StackElementType>::isEmpty()
+{
+	return bool(head == 0);
+}
+
 
 
 
 
 //배열을 이용한 스택 구현
-template<class StackElementType>
+/*template<class StackElementType>
 class Stack
 {
 public:
@@ -68,7 +131,7 @@ bool
 Stack<StackElementType>::isFull()
 {
 	return topIndex == maxStackSize - 1;
-}
+}*/
 
 
 
