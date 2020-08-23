@@ -21,11 +21,13 @@ int main()
         cout << arr[i] << " ";
     }
     cout << endl;
-    quickSort(arr, 0, ARR_SIZE - 1);
+    //quickSort(arr, 0, ARR_SIZE - 1);
+    bubbleSort(arr, ARR_SIZE);
     for (int i = 0; i < ARR_SIZE; i++)
     {
         cout << arr[i] << " ";
     }
+    
     cout << endl;
     
     

@@ -6,7 +6,7 @@ void swap(int *a,int *b) {
 	*a = *b;
 	*b = temp;
 }
-
+//  기준점을 잡아 기준점보다 작은 것은 왼쪽에 큰 것은 오른쪽에 정렬하고 분할정복을 통해 
 void quickSort(int *data,int left, int right) {
 	if (left >= right) {
 		return;
@@ -26,10 +26,24 @@ void quickSort(int *data,int left, int right) {
 	quickSort(data, i + 1, right);
 
 }
-// 분할 정복
-void bubbleSort() {
-
-
+//하나씩 비교해가며 스왑
+void bubbleSort(int *data,int size) {
+	int swapnum = 0;
+	for (int i = 0; i < size-1; i++)
+	{
+		for (int j = 0; j < size-i-1; j++)
+		{
+			if (data[j]>data[j+1])
+			{
+				swap(&data[j], &data[j + 1]);
+				swapnum++;
+			}
+			if (swapnum==0)
+			{
+				break;
+			}
+		}
+	}
 }
 //
 void mergeSort() {
