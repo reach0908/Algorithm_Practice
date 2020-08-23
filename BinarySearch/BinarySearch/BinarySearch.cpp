@@ -7,6 +7,34 @@
 
 using namespace std;
 #define ARR_SIZE 20
+
+bool BinarySearch(int arr[],int start,int end,int search) {
+    if (end == 0 && search == arr[0]) {
+        return true;
+    }
+    else if (end == 0 && search != arr[0]) {
+        return false;
+    }
+    if (end==-1)
+    {
+        return false;
+    }
+    int mid = (start+end) / 2;
+    if (search==arr[mid])
+    {
+        return true;
+    }
+    else if (search>arr[mid])
+    {
+        return BinarySearch(arr,mid+1,end,search);
+    }
+    else
+    {
+        return BinarySearch(arr, start, mid, search);
+    }
+    return false;
+}
+
 int main()
 {
     random_device rd;
@@ -21,16 +49,30 @@ int main()
         cout << arr[i] << " ";
     }
     cout << endl;
-    //quickSort(arr, 0, ARR_SIZE - 1);
+    quickSort(arr, 0, ARR_SIZE - 1);
+    
     //bubbleSort(arr, ARR_SIZE);
     //mergeSort(arr, 0, ARR_SIZE-1);
     //insertionSort(arr, ARR_SIZE);
-    selectionSort(arr, ARR_SIZE);
+    //selectionSort(arr, ARR_SIZE);
     for (int i = 0; i < ARR_SIZE; i++)
     {
         cout << arr[i] << " ";
     }
+    cout << endl;
+
+    cout << "찾을 값을 입력하세요 :";
+    int search;
+    cin >> search;
     
+    if (BinarySearch(arr, 0, ARR_SIZE - 1, search))
+    {
+        cout << "찾았습니다." << endl;
+    }
+    else
+    {
+        cout << "찾지 못했습니다." << endl;
+    }
     cout << endl;
     
     
