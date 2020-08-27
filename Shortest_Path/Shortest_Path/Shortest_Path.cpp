@@ -74,7 +74,7 @@ vector<int> dijkstra() {
 			unsigned int via = d[N] + graph[N][i];
 			if (d[i]>via)
 			{
-				d[i] = via;
+				d[i] = via; // 방문할노드에서 다른 방향 간선이 있는데 그게 더 작다면 그걸로 업데이트
 			}
 		}
 
@@ -86,7 +86,7 @@ int main() {
 	cin >> V >> E >> K;
 	graph.assign(V, vector<int>(V, INF));
 
-	while (E--)
+	while (E--) // 간선의 개수를 채울때까지
 	{
 		int u, v, w;
 		cin >> u >> v >> w;
