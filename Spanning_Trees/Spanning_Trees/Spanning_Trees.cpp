@@ -69,9 +69,6 @@
 
 //위 두가지의 기법을 조합하면 유니언파인드 알고리즘
 
-
-
-
 #include <iostream>
 
 using namespace std;
